@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Nombre: [Kaiet de pablo] 
+Curso: [Asir1] 
+Fecha: [20/04/2025] 
+Ejercicio: [Información de ubicaciones] 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición del tipo simple "direccion" con enumeración -->
+  <xs:simpleType name="direccion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="norte"/>
+      <xs:enumeration value="sur"/>
+      <xs:enumeration value="este"/>
+      <xs:enumeration value="oeste"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición del nuevo tipo complejo "infoUbicacion" -->
+  <xs:complexType name="infoUbicacion">
+    <xs:sequence>
+      <xs:element name="direccion" type="direccion"/>
+    </xs:sequence>
+    <xs:attribute name="metros" type="xs:int" />
+  </xs:complexType>
+
+  <!-- Elemento raíz "ubicaciones" -->
+  <xs:element name="ubicaciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ubicacion" type="infoUbicacion" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

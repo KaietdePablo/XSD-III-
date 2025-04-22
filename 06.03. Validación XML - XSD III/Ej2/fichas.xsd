@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Nombre: [Kaiet de pablo] 
+Curso: [Asir1] 
+Fecha: [20/04/2025] 
+Ejercicio: [Longitud mínima y máxima de una clave] 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición de tipo simple para la clave -->
+  <xs:simpleType name="claveType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="4"/>
+      <xs:maxLength value="10"/>
+      <xs:pattern value="[a-zA-Z0-9]{4,10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición de tipo complejo para ficha -->
+  <xs:complexType name="fichaType">
+    <xs:sequence>
+      <xs;element name="nombre" type="xs:string"/>
+      <xs:element name="clave" type="claveType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definición del elemento raíz "fichas" -->
+  <xs:element name="fichas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ficha" type="fichaType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

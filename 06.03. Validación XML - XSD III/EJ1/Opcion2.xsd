@@ -1,0 +1,11 @@
+<!-- 
+Nombre: [Kaiet de pablo] 
+Curso: [Asir1] 
+Fecha: [20/04/2025] 
+Ejercicio: [Longitud fija de una clave] 
+-->
+<xs:simpleType name="clave">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[a-zA-Z0-9]{10}"/>
+  </xs:restriction>
+</xs:simpleType>
